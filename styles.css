@@ -1,6 +1,6 @@
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 350px; /* Ajusta la posición de anclaje */
+    scroll-padding-top: 150px; /* Ajusta la posición de anclaje */
 }
 
 :root {
@@ -36,27 +36,39 @@ header {
     text-align: center;
     padding: 40px 0;
     position: fixed;
-    top: 0;
+    top: -30px;
     left: 0;
     width: 100%;
     z-index: 1000;
     background-color: white;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    height: 190px;
 }
-
-.titulo {
-    font-size: 3rem;
-    letter-spacing: 4px;
-    font-weight: 300;
-    transition: transform var(--transition-time);
-    text-decoration: none;
-    color: black;
-}
+.dm-serif-text-regular {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--primary-color);
+    font-size: 60px;
+    top: -10px;
+  }
+  
+  .dm-serif-text-regular-italic {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--primary-color);
+    font-size: 60px;
+    top: -10px;
+  }
+  
 
 a {
     text-decoration: none;
 }
-
+header h1{
+    top: -20px;
+}
 header h1:hover {
     transform: scale(1.02);
 }
@@ -98,7 +110,6 @@ header h1:hover {
 /* Contenedor de imagen y texto */
 .text-image-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
     margin: 40px 0;
     padding: 20px;
@@ -106,7 +117,8 @@ header h1:hover {
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform var(--transition-time), box-shadow var(--transition-time);
-    margin-top: 200px;
+    margin-top: 60px;
+    gap: 20px;
 }
 
 .text-image-container:hover {
@@ -116,7 +128,7 @@ header h1:hover {
 
 #image-display {
     width: 100%;
-    max-width: 700px;
+    max-width: 400px;
     height: auto;
     margin-bottom: 20px;
     border-radius: 15px;
@@ -128,8 +140,9 @@ header h1:hover {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
-    margin: 30px 0;
+    gap: 5px;
+    margin: 10px 0;
+
 }
 
 .buttons button {
@@ -164,10 +177,11 @@ header h1:hover {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 5px;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 3px;
     margin-bottom: 20px;
+    top: -5px;
 }
 
 .menu button {
@@ -187,6 +201,11 @@ header h1:hover {
     color: var(--background-color);
     transform: translateY(-3px);
 }
+.buttons button img {
+    height: 40px !important; /* Fuerza la altura de la imagen */
+    width: auto !important; /* Mantiene la proporción */
+    display: block !important;
+}
 
 /* Animaciones y transiciones */
 @keyframes fadeIn {
@@ -199,32 +218,114 @@ body {
 }
 
 /* Diseño responsivo */
-@media (min-width: 768px) {
-    .text-image-container {
-        flex-direction: row;
-        gap: 30px;
-        align-items: flex-start;
+@media (max-width: 1024px) {
+    header {
+        height: auto;
+        padding: 8px;
     }
 
-    #image-display {
-        width: 50%;
-        margin-bottom: 0;
+    .titulo {
+        font-size: 20px;
+        text-align: center;
     }
 
-    .text-image-container p {
-        width: 50%;
+    .menu {
+        display: flex;
+        flex-wrap: wrap; /* Permite que los botones se mantengan en una línea */
+        justify-content: center;
+        gap: 5px;
+        padding: 0 10px;
+    }
+
+    .menu button {
+        font-size: 14px;
+        padding: 8px;
+        width: auto;
+        min-width: 100px;
     }
 }
 
-@media (max-width: 767px) {
-    header h1 {
-        font-size: 2rem;
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 5px;
     }
 
-    .intro p:first-of-type {
-        font-size: 1.3rem;
+    .titulo {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .menu button {
+        font-size: 12px;
+        padding: 6px;
+        min-width: 90px;
     }
 }
+
+@media (max-width: 480px) {
+    header {
+        height: auto;
+    }
+
+    .titulo {
+        font-size: 14px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .menu button {
+        font-size: 10px;
+        padding: 4px;
+        min-width: 80px;
+    }
+}
+/* 📌 Diseño para computadoras grandes */
+@media (min-width: 1200px) {
+    body {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+}
+
+/* 📌 Diseño para tablets */
+@media (max-width: 1024px) {
+    body {
+        max-width: 900px;
+        padding: 15px;
+    }
+}
+
+/* 📌 Diseño para móviles */
+@media (max-width: 768px) {
+    body {
+        max-width: 95%;
+        padding: 10px;
+    }
+}
+
+/* 📌 Diseño para móviles pequeños */
+@media (max-width: 480px) {
+    body {
+        max-width: 100%;
+        padding: 5px;
+    }
+}
+
+
+
 
 /* Banner */
 #banner {
@@ -258,6 +359,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
+    height: 250px;
 }
 
 .author {
@@ -266,6 +368,7 @@ body {
     border: 1px solid var(--accent-color);
     border-radius: 4px;
     transition: all var(--transition-time);
+    height: auto;
 }
 
 .author:hover {
@@ -342,19 +445,6 @@ body {
     font-size: 0.9rem;
     opacity: 0.7;
 }
-
-@media (max-width: 767px) {
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .footer-links {
-        margin: 15px 0;
-    }
-}
-
         
         
         
